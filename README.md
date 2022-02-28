@@ -1,2 +1,4 @@
-# OOP-Software-Engineering-21/22
- Materials given by me to the students from the Software Engineering bachelor program during the fall semester of 21/22.
+## Материали от упражненията по "Обектно-ориентирано програмиране"
+#### Летен семестър 2021/2022, спец. Софтуерно инженерство
+
+- [Тема 1](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/blob/main/Sem%2001/README.md) : Преговор върху динамична памет. Увод в Обектно-ориентираното програмиране.
