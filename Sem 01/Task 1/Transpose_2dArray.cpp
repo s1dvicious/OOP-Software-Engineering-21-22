@@ -2,7 +2,6 @@
 //
 
 #include <iostream>
-#include<iomanip>
 
 void printMatrix(int** ptr, size_t N, size_t M) {
 	for (size_t i = 0; i < N; ++i) {
