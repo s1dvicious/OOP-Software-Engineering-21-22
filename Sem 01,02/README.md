@@ -217,7 +217,7 @@ return 0;
   Итерираме по **i=0,...N-1**. На **i**-та итерация определяме минимален елемент (в случая индекса му min_index) измежду елементите в подмасива **{areas<sub>i+1</sub>,...,areas<sub>N-1</sub>}** и го разменяме с **areas<sub>i</sub>**, в случай, че **areas<sub>i</sub>>areas<sub>min_index</sub>**. В противен случай не ги разменяме.  
 	
 ```c++
-void selectionSort(triangle* tr, double* areas, size_t N){
+void selectionSort(triangle* tr, double* areas, int N){
  int min_index;
  for(int i=0; i<N; ++i){
   min_index=i;
@@ -237,23 +237,10 @@ void selectionSort(triangle* tr, double* areas, size_t N){
 <details>
   <summary>Bubble Sort</summary>
   
-  Идеята е да обхождаме масива, т.е. итерираме по **i=1,...,N-1**, като на всяка итерация държим булева променлива **swapped**, чиято стойност в началото е инициализирана като **false**. За всяко **i** сравняваме **arr[i-1]** и **arr[i]** - ако **arr[i-1]>arr[i]**, то разменяме стойностите им и слагаме **swapped=true**. Тази процедура продължава докато не излезнем от итерацията със стойност **false** на **swapped**, т.е. ако се е оказало, че масивът като редица е наистина растящ.  
-Псевдокод:
-```
- swapped=true
- while swapped is true
-   swapped=false
-     For i=1 to N-1
-       if arr[i-1]>arr[i]
-         swap(arr[i-1],arr[i])
-	 swapped=true
-       end if
-      end For
-  end while
-```
-или конкретно в нашия пример имаме 
+  Идеята е да обхождаме масива, т.е. итерираме по **i=1,...,N-1**, като на всяка итерация държим булева променлива **swapped**, чиято стойност в началото е инициализирана като **false**. За всяко **i** сравняваме **areas[i-1]** и **areas[i]** - ако **area[i-1]>areas[i]**, то разменяме стойностите им и слагаме **swapped=true**. Тази процедура продължава докато не излезнем от итерацията със стойност **false** на **swapped**, т.е. ако се е оказало, че масивът като редица е наистина растящ.  
+
 ```c++
-void bubbleSort(double* areas, triangle* tr, unsigned len) {
+void bubbleSort(double* areas, triangle* tr, int len) {
 	bool swapped=true;
 	while (swapped) {
 		swapped = false;
