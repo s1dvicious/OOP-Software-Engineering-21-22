@@ -209,36 +209,24 @@ return 0;
 ```  
 ### [Task 2](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/blob/main/Sem%2001%2C02/Task%202/Triangles.cpp)
 Въвежда се цяло число **N**  и после **N** тригъгълника в равнината, определени от 3 точки (6 координати).Отпечатайте тригълниците **сортирани по лицата им.**  
-За целите на сортировката ще използваме по-простичък алгоритъм, измежду **Selection Sort/Bubble Sort**. Даден е масив с **N** елемента **arr={a<sub>0</sub>,a<sub>1</sub>,...,a<sub>N-1</sub>}**.
+За целите на сортировката ще използваме по-простичък алгоритъм, измежду **Selection Sort/Bubble Sort**. Разглеждаме масива **areas** с **N** на брой елемента, следвайки задачата. Да отбележим, че всяка размяна (swap) на лица (в масива **areas**) трябва да се отрази и при триъгълниците (**tr**).
 
 <details>
   <summary>Selection Sort</summary>
   
-  Итерираме по **i=0,...N-1**. На **i**-та итерация определяме минимален елемент (в случая индекса му min_index) измежду елементите в подмасива **{a<sub>i+1</sub>,...,a<sub>N-1</sub>}** и го разменяме с **a<sub>i</sub>**, в случай, че **a<sub>i</sub>>a<sub>min_index</sub>**. В противен случай не ги разменяме.  
-Като псевдокод това изглежда по следния начин
-```
- For i=0 to N-1
-   min_index=i
-     For j=i+1 to N-1
-       if arr[j]<arr[min_index]
-         min_index=j
-	end if
-     end For
-    swap(arr[i],arr[min_index]
-  end For        
-```
-или на **C++** код 
+  Итерираме по **i=0,...N-1**. На **i**-та итерация определяме минимален елемент (в случая индекса му min_index) измежду елементите в подмасива **{areas<sub>i+1</sub>,...,areas<sub>N-1</sub>}** и го разменяме с **areas<sub>i</sub>**, в случай, че **areas<sub>i</sub>>areas<sub>min_index</sub>**. В противен случай не ги разменяме.  
+	
 ```c++
 void selectionSort(triangle* tr, double* areas, size_t N){
  int min_index;
  for(int i=0; i<N; ++i){
   min_index=i;
     for(int j=i+1; j<N; ++j){
-      if(areas[j]<areas[min_index])
+      if(arr[j]<arr[min_index])
         min_index=j;
     }
     if(min_index!=i){
-    swap_areas(areas,i, min_index);
+    swap_areas(ar,i, min_index);
     swap_triangle(tr,i,min_index);
     } 
   }
