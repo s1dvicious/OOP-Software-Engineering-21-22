@@ -279,9 +279,9 @@ void bubbleSort(double* areas, triangle* tr, unsigned len) {
 	}
 }
 ```
-</details>
+</details>  
 	
-	## Обединения (union)
+## Обединения (union)
 **Union**-ът е тип структура, т.е. също групира различни типове данни, като главната особеност при него е количеството памет, което използва. Начинът за създаване на **union** е 
 ```c++
 union unionName{
