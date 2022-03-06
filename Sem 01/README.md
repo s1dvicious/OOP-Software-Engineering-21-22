@@ -174,10 +174,12 @@ some_guy={"Pesho", 21, 1000,{3.5,3,5}};
 ```
 
 ###  Указатели (pointers) към обекти от новодефинирания тип и динамично заделяне на памет
-Структурите могат да бъдат сочени от указатели от същия тип
+Структурите могат да бъдат сочени от указатели от същия тип, като за стойност указателят държи адреса на първия й елемент
 ```c++
 Box b={3.5,3,5.5}; //Initialize b
 Box*ptr=&b;        //the adress of b is assigned to ptr;
+
+std::cout<<ptr<<" "<<&b.width;    //prints the same adresses;
 ```
 В случая при дереферериране се използва оператора **(->)**, т.е.
 ```c++
@@ -204,4 +206,113 @@ readBox(boxes[i]);
 //--do something with the box objects--
 delete[] b;
 return 0;
+```  
+**Задача** Въвежда се цяло число **N**  и после **N** тригъгълника в равнината, определени от 3 точки (6 координати).
+Отпечатайте тригълниците **сортирани по лицата им.**  
+За целите на сортировката ще използваме по-простичък алгоритъм, измежду **Selection Sort/Bubble Sort**. Даден е масив с **N** елемента **arr={a<sub>0</sub>,a<sub>1</sub>,...,a<sub>N-1</sub>}**.
+
+<details>
+  <summary>Selection Sort</summary>
+  
+  ##  Итерираме по **i=0,...N-1**. На **i**-та итерация определяме минимален елемент (в случая индекса му) измежду елементите в подмасива **{a<sub>i+1</sub>,...,a<sub>N-1</sub>}** и го разменяме с **a<sub>i</sub>**, в случай, че 
+Като псевдокод това изглежда по следния начин
 ```
+ For i=0 to N-1
+   min_index=i
+     For j=i+1 to N-1
+       if arr[j]<arr[min_index]
+         min_index=j
+	end if
+     end For
+    swap(arr[i],arr[min_index]
+  end For        
+```
+или на **C++** код 
+```c++
+void selectionSort(triangle* tr, double* areas, size_t N){
+ int min_index;
+ for(int i=0; i<N; ++i){
+  min_index=i;
+    for(int j=i+1; j<N; ++j){
+      if(areas[j]<areas[min_index])
+        min_index=j;
+    }
+    if(min_index!=i){
+    swap_areas(areas,i, min_index);
+    swap_triangle(tr,i,min_index);
+    } 
+  }
+}
+```
+</details>
+
+<details>
+  <summary>Bubble Sort</summary>
+  
+  ## Идеята е да обхождаме масива, т.е. итерираме по **i=1,...,N-1**, като на всяка итерация държим булева променлива **swapped**, чиято стойност в началото е инициализирана като **false**. За всяко **i** сравняваме **arr[i-1]** и **arr[i]** - ако **arr[i-1]>arr[i]**, то разменяме стойностите им и слагаме **swapped=true**. Тази процедура продължава докато не излезнем от итерацията със стойност **false** на **swapped**, т.е. ако се е оказало, че масивът като редица е наистина растящ.  
+Псевдокод:
+```
+ swapped=true
+ while swapped is true
+   swapped=false
+     For i=1 to N-1
+       if arr[i-1]>arr[i]
+         swap(arr[i-1],arr[i])
+	 swapped=true
+       end if
+      end For
+  end while
+```
+или конкретно в нашия пример имаме 
+```c++
+void bubbleSort(double* areas, triangle* tr, unsigned len) {
+	bool swapped=true;
+	while (swapped) {
+		swapped = false;
+		for (int i = 1; i < len ; ++i) {
+			if (areas[i-1] > areas[i]){
+				swap_areas(areas, i-1, i);
+				swap_triangle(tr, i-1, i);
+				swapped = true;
+		    }
+		}
+	}
+}
+```
+</details>
+	
+	## Обединения (union)
+**Union**-ът е тип структура, т.е. също групира различни типове данни, като главната особеност при него е количеството памет, което използва. Начинът за създаване на **union** е 
+```c++
+union unionName{
+  member1;
+  member2;
+  ...
+  memberN;
+};
+```
+Като синтаксис наследяваме всичко, засегнато при структурите - начин за декларация,инициализация, подаване като параметър и т.н., с уговорката, че заменяме **struct** с **union**.  
+Както отбелязахме, ключова характеристика на обединенията е количеството памет, което използват. Променливите в един **union** са разположени на едно и също място в паметтта, като размерът му е равен на размера на най-голямата му променлива. В тази връзка, във всеки един момент може да се използва само една променлива от състава на обединението и при инициализация на коя-да е такава всички останали променливи стават **undefined**.  
+  
+### Пример
+```c++
+union un{
+char ch;   //1 byte
+short b;  //2 bytes;
+int c;    //4 bytes
+};
+
+int main(){
+myUnion un;
+std::cout<<sizeof(my_un)<<std::endl;
+//The values of elements b and c in my_un become undefined once ch has been initialized;
+un.ch='c';          
+std::cout<<my_un.ch<<" "<<my_un.b<<" "<<my_un.c<<std::endl;
+//prints c garbage garbage
+std::cout<<(void*)&my_un.ch<<" "<<&my_un.b<<" "<<&my_un.c;        //The adresses of ch,b and c respective to **un** are the same, since myUnion is a union;
+
+return 0;
+}
+
+```
+![enter image description here](https://camo.githubusercontent.com/47ecfa56be7126482573129cb364933c78224482ba3365af76f940805b3322e5/68747470733a2f2f692e6962622e636f2f346d366d354d672f756e696f6e2e706e67)
