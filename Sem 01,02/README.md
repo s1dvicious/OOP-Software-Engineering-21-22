@@ -271,7 +271,7 @@ union unionName{
   
 ### Пример
 ```c++
-union un{
+union myUnion{
 char ch;   //1 byte
 short b;  //2 bytes;
 int c;    //4 bytes
@@ -281,16 +281,16 @@ int main(){
 	
 myUnion un;
 	
-std::cout<<sizeof(my_un)<<std::endl;
+std::cout<<sizeof(un)<<std::endl;
 //Prints 4, i.e. the size in bytes of an int (which is un's largest size-wise component);
 	
 un.ch='c'; 
 //The values of elements b and c in my_un become undefined once ch has been initialized;
 	
-std::cout<<my_un.ch<<" "<<my_un.b<<" "<<my_un.c<<std::endl;
+std::cout<<un.ch<<" "<<un.b<<" "<<un.c<<std::endl;
 //prints c garbage garbage
 	
-std::cout<<(void*)&my_un.ch<<" "<<&my_un.b<<" "<<&my_un.c;    
+std::cout<<(void*)&un.ch<<" "<<&un.b<<" "<<&un.c;    
 //The adresses of ch,b and c respective to **un** are the same, since myUnion is a union;
 
 return 0;
