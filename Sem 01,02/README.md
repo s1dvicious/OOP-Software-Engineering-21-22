@@ -57,7 +57,7 @@ delete[] arr2d[i];        //Deallocate arr2d[i], where i=0,...,M-1;
 delete[] arr2d;           //Deallocate arr2d
 
 ```
-### Задача за транспониране на матрица (двумерен масив)  
+### [Task 1](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/blob/main/Sem%2001%2C02/Task%201/Transpose_2dArray.cpp)  
 Да се напише програма, която прочита от конзолата матрица (<em>динамично заделен двумерен масив</em>) с размер **NxM** и я отпечатва транспонирана.
 
 
@@ -207,38 +207,26 @@ readBox(boxes[i]);
 delete[] b;
 return 0;
 ```  
-**Задача** Въвежда се цяло число **N**  и после **N** тригъгълника в равнината, определени от 3 точки (6 координати).
-Отпечатайте тригълниците **сортирани по лицата им.**  
-За целите на сортировката ще използваме по-простичък алгоритъм, измежду **Selection Sort/Bubble Sort**. Даден е масив с **N** елемента **arr={a<sub>0</sub>,a<sub>1</sub>,...,a<sub>N-1</sub>}**.
+### [Task 2](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/blob/main/Sem%2001%2C02/Task%202/Triangles.cpp)
+Въвежда се цяло число **N**  и после **N** тригъгълника в равнината, определени от 3 точки (6 координати).Отпечатайте тригълниците **сортирани по лицата им.**  
+За целите на сортировката ще използваме по-простичък алгоритъм, измежду **Selection Sort/Bubble Sort**. Разглеждаме масива **areas** с **N** на брой елемента, следвайки задачата. Да отбележим, че всяка размяна (swap) на лица (в масива **areas**) трябва да се отрази и при триъгълниците (**tr**).
 
 <details>
   <summary>Selection Sort</summary>
   
-  ##  Итерираме по **i=0,...N-1**. На **i**-та итерация определяме минимален елемент (в случая индекса му) измежду елементите в подмасива **{a<sub>i+1</sub>,...,a<sub>N-1</sub>}** и го разменяме с **a<sub>i</sub>**, в случай, че 
-Като псевдокод това изглежда по следния начин
-```
- For i=0 to N-1
-   min_index=i
-     For j=i+1 to N-1
-       if arr[j]<arr[min_index]
-         min_index=j
-	end if
-     end For
-    swap(arr[i],arr[min_index]
-  end For        
-```
-или на **C++** код 
+  Итерираме по **i=0,...N-1**. На **i**-та итерация определяме минимален елемент (в случая индекса му min_index) измежду елементите в подмасива **{areas<sub>i+1</sub>,...,areas<sub>N-1</sub>}** и го разменяме с **areas<sub>i</sub>**, в случай, че **areas<sub>i</sub>>areas<sub>min_index</sub>**. В противен случай не ги разменяме.  
+	
 ```c++
-void selectionSort(triangle* tr, double* areas, size_t N){
+void selectionSort(triangle* tr, double* areas, int N){
  int min_index;
  for(int i=0; i<N; ++i){
   min_index=i;
     for(int j=i+1; j<N; ++j){
-      if(areas[j]<areas[min_index])
+      if(arr[j]<arr[min_index])
         min_index=j;
     }
     if(min_index!=i){
-    swap_areas(areas,i, min_index);
+    swap_areas(ar,i, min_index);
     swap_triangle(tr,i,min_index);
     } 
   }
@@ -249,23 +237,10 @@ void selectionSort(triangle* tr, double* areas, size_t N){
 <details>
   <summary>Bubble Sort</summary>
   
-  ## Идеята е да обхождаме масива, т.е. итерираме по **i=1,...,N-1**, като на всяка итерация държим булева променлива **swapped**, чиято стойност в началото е инициализирана като **false**. За всяко **i** сравняваме **arr[i-1]** и **arr[i]** - ако **arr[i-1]>arr[i]**, то разменяме стойностите им и слагаме **swapped=true**. Тази процедура продължава докато не излезнем от итерацията със стойност **false** на **swapped**, т.е. ако се е оказало, че масивът като редица е наистина растящ.  
-Псевдокод:
-```
- swapped=true
- while swapped is true
-   swapped=false
-     For i=1 to N-1
-       if arr[i-1]>arr[i]
-         swap(arr[i-1],arr[i])
-	 swapped=true
-       end if
-      end For
-  end while
-```
-или конкретно в нашия пример имаме 
+  Идеята е да обхождаме масива, т.е. итерираме по **i=1,...,N-1**, като на всяка итерация държим булева променлива **swapped**, чиято стойност в началото е инициализирана като **false**. За всяко **i** сравняваме **areas[i-1]** и **areas[i]** - ако **area[i-1]>areas[i]**, то разменяме стойностите им и слагаме **swapped=true**. Тази процедура продължава докато не излезнем от итерацията със стойност **false** на **swapped**, т.е. ако се е оказало, че масивът като редица е наистина растящ.  
+
 ```c++
-void bubbleSort(double* areas, triangle* tr, unsigned len) {
+void bubbleSort(double* areas, triangle* tr, int len) {
 	bool swapped=true;
 	while (swapped) {
 		swapped = false;
@@ -296,20 +271,27 @@ union unionName{
   
 ### Пример
 ```c++
-union un{
+union myUnion{
 char ch;   //1 byte
 short b;  //2 bytes;
 int c;    //4 bytes
 };
 
 int main(){
+	
 myUnion un;
-std::cout<<sizeof(my_un)<<std::endl;
+	
+std::cout<<sizeof(un)<<std::endl;
+//Prints 4, i.e. the size in bytes of an int (which is un's largest size-wise component);
+	
+un.ch='c'; 
 //The values of elements b and c in my_un become undefined once ch has been initialized;
-un.ch='c';          
-std::cout<<my_un.ch<<" "<<my_un.b<<" "<<my_un.c<<std::endl;
+	
+std::cout<<un.ch<<" "<<un.b<<" "<<un.c<<std::endl;
 //prints c garbage garbage
-std::cout<<(void*)&my_un.ch<<" "<<&my_un.b<<" "<<&my_un.c;        //The adresses of ch,b and c respective to **un** are the same, since myUnion is a union;
+	
+std::cout<<(void*)&un.ch<<" "<<&un.b<<" "<<&un.c;    
+//The adresses of ch,b and c respective to **un** are the same, since myUnion is a union;
 
 return 0;
 }
