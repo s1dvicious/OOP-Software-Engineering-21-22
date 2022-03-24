@@ -499,7 +499,7 @@ int main() {
 		initStudent(students[2], "Georgi", 25, 31356);
 		initStudent(students[3], "Zhelyazko", 21, 3144);
 
-		std::ofstream file("students.dat", std::ios::binary | std::ios::trunc);
+		std::ofstream file("students.dat", std::ios::binary);
 
 		if (!file.is_open()) {
 			std::cout << "Error while opening the file";
