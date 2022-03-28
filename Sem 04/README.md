@@ -393,7 +393,7 @@ int main() {
 	{//write
 		Student st1 = createStudent("Pesho", 31479, 24);
 		Student st2 = createStudent("Ivan", 31480, 25);
-		std::ofstream file("output.dat", std::ios::binary | std::ios::trunc);
+		std::ofstream file("output.dat", std::ios::binary);
 
 		if (!file.is_open()) {
 			std::cout << "Error while opening the file";
@@ -517,7 +517,7 @@ int main() {
 		Student* students;
 		size_t studentsCount;
 
-		std::ifstream file("students.dat", std::ios::binary | std::ios::in);
+		std::ifstream file("students.dat", std::ios::binary);
 
 		if (!file.is_open()) {
 			std::cout << "Error while opening the file!";
