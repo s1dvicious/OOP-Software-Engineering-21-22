@@ -27,7 +27,7 @@ struct Point
 	}	
 };
 
-//or the
+//or outside the class, via the scope resolution operator (::)
 
 struct Point
 {
