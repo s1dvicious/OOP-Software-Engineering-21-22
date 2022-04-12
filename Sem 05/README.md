@@ -27,7 +27,7 @@ struct Point
 	}	
 };
 
-//or the
+//or outside the class, via the scope resolution operator (::)
 
 struct Point
 {
@@ -213,7 +213,7 @@ int main()
 }//calls the destructor of Student on ptr;
 ```
 
-### Пример - стек на извикванията при вложени (агрегатни) класове
+### Пример - стек на извикванията при вложени класове
 ```c++
 
 #include<iostream>
