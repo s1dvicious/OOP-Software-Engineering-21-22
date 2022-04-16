@@ -1,77 +1,62 @@
-#include "MyString.h"
-#include <cstring>
+#include "myString.h"
+#include<cstring>
 #pragma warning(disable:4996)
 
-void MyString::copyFrom(const MyString& other)
-{
-	str = new char[strlen(other.str) + 1];
+void myString::copyFrom(const myString& other) {
+	str = new char[other.size+1];
 	strcpy(str, other.str);
 	size = other.size;
 }
-void MyString::free()
-{
-	delete[] str;
-}
 
-MyString::MyString()
-{
-	str = new char[1];
-	str[0] = '\0';
+void myString::free() {
+	delete[] str;
 	size = 0;
 }
 
-MyString::MyString(const char* data)
-{
-	size = strlen(data);
-	str = new char[size + 1];
-	strcpy(str, data);
+myString::myString() {
+	str = new char('\0');
+	size = 1;
 }
 
-MyString::MyString(const MyString& other)
-{
-	copyFrom(other);
+myString::~myString() {
+	delete[] str;
 }
-MyString& MyString::operator=(const MyString& other)
-{
-	if (this != &other)
-	{
+
+myString::myString(const myString& toCopy) {
+	copyFrom(toCopy);
+}
+
+myString& myString::operator=(const myString& rhs) {
+
+	if (this != &rhs) {
 		free();
-		copyFrom(other);
+		copyFrom(rhs);
 	}
+
 	return *this;
 }
-MyString::~MyString()
-{
-	free();
+
+myString::myString(const char* str) {
+	
+	this->str = new char[strlen(str) + 1];
+	strcpy(this->str, str);
+	size = strlen(str);
 }
 
+void myString::concat(const myString& rhs) {
+	char* temp = new char[this->size + rhs.size + 1];
+	strcpy(temp, this->str);
+	strcat(temp, rhs.str);
 
-size_t MyString::getSize() const
-{
+	free();
+	this->str = temp;
+	this->size = strlen(str);
+}
+
+size_t myString::getSize()const {
 	return size;
 }
 
-
-void MyString::concat(const MyString& other)
-{
-	char* temp = new char[getSize() + other.getSize() + 1];
-	strcpy(temp, str);
-	strcat(temp, other.str);
-
-	delete[] str;
-	str = temp;
-	size = size + other.getSize();
-}
-
-const char* MyString::c_str() const
-{
+const char* myString::c_str()const {
 	return str;
-}
-
-MyString& MyString::operator+(const MyString& rhs) {
-	
-	strcat(this->str, rhs.str);
-	this->size += rhs.size;
-
-	return *this;
 }
