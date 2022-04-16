@@ -1,0 +1,102 @@
+#include "MyString.h"
+#include <cstring>
+#pragma warning(disable:4996)
+
+void MyString::copyFrom(const MyString& other)
+{
+	str = new char[strlen(other.str) + 1];
+	strcpy(str, other.str);
+	size = other.size;
+}
+void MyString::free()
+{
+	delete[] str;
+}
+
+MyString::MyString()
+{
+	str = new char[1];
+	str[0] = '\0';
+	size = 0;
+}
+
+MyString::MyString(const char* data)
+{
+	size = strlen(data);
+	str = new char[size + 1];
+	strcpy(str, data);
+}
+
+MyString::MyString(const MyString& other)
+{
+	copyFrom(other);
+}
+MyString& MyString::operator=(const MyString& other)
+{
+	if (this != &other)
+	{
+		free();
+		copyFrom(other);
+	}
+	return *this;
+}
+MyString::~MyString()
+{
+	free();
+}
+
+
+size_t MyString::getSize() const
+{
+	return size;
+}
+
+
+void MyString::concat(const MyString& other)
+{
+	char* temp = new char[getSize() + other.getSize() + 1];
+	strcpy(temp, str);
+	strcat(temp, other.str);
+
+	delete[] str;
+	str = temp;
+	size = size + other.getSize();
+}
+
+const char* MyString::c_str() const
+{
+	return str;
+}
+
+MyString& MyString::operator+(const MyString& rhs) {
+	
+	strcat(this->str, rhs.str);
+	this->size += rhs.size;
+
+	return *this;
+}
+
+bool MyString::subString(const MyString& other)const {
+
+	if (size > other.size) return false;
+	else {
+		size_t index = 0;
+		while (other.str[index] != '\0'){
+			if (index + size > other.size) return false;
+			if (str[0] == other.str[index]) {
+				size_t tempCount = 0;
+				while (other.str[index + tempCount] == str[tempCount]) {
+					++tempCount;
+				}
+				if (tempCount == size) return true;
+				index += tempCount;
+			}
+			else {
+				index++;
+			}
+		}
+		
+		return false;
+	}
+
+}
