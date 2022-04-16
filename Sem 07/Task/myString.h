@@ -1,33 +1,26 @@
 #ifndef MYSTRING_H
 #define MYSTRING_h
 
-class MyString
-{
+class myString {
 	char* str;
 	size_t size;
 
-	void copyFrom(const MyString& other);
+	void copyFrom(const myString&);
 	void free();
-
 public:
 
-	//default constructors
-	MyString();
-	MyString(const char*);
+	myString(const char*);
 
-	//copy control and destructor
-	MyString(const MyString&);
-	MyString& operator=(const MyString&);
-	~MyString();
+	//Big Four
+	myString();
+	~myString();
+	myString(const myString&);
+	myString& operator=(const myString&);
 
-	//selectors and mutators
-	size_t getSize() const;
-	
-	//member-functions
-	MyString& operator+(const MyString&);
-	void concat(const MyString&);
-	bool subString(const MyString&) const;
-	const char* c_str() const;
+	void concat(const myString&);
+
+	size_t getSize()const;
+	const char* c_str()const;
 };
 
 #endif
