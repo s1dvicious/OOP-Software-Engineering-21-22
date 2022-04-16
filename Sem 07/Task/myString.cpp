@@ -75,28 +75,3 @@ MyString& MyString::operator+(const MyString& rhs) {
 
 	return *this;
 }
-
-bool MyString::subString(const MyString& other)const {
-
-	if (size > other.size) return false;
-	else {
-		size_t index = 0;
-		while (other.str[index] != '\0'){
-			if (index + size > other.size) return false;
-			if (str[0] == other.str[index]) {
-				size_t tempCount = 0;
-				while (other.str[index + tempCount] == str[tempCount]) {
-					++tempCount;
-				}
-				if (tempCount == size) return true;
-				index += tempCount;
-			}
-			else {
-				index++;
-			}
-		}
-		
-		return false;
-	}
-
-}
