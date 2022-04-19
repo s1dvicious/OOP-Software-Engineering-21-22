@@ -8,3 +8,4 @@
 - [Тема 5](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2006) : Разделна компилация. Абстракция. Копиращ конструктор и оператор **=**. 
 - [Тема 6](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2007) : Динамична памет в класовете. Голяма четворка.
 - [Тема 7](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2008) : Предефиниране на оператори. Приятелски класове и функции.
+- [Тема 8](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2009) : Композиция на обекти. Масиви от обекти.
