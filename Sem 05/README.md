@@ -154,18 +154,22 @@ struct Point{
 Тяхното предназначение е точно обратното на това на конструкторите. Те извършват каквато работа е необходима при унищожаване на обекта, напр. освобождаване на динамично заделена памет.  
 - Той е член-функция, като името му е същото като на класа, с префикс (~)
 ```c++
-struct Person{
-char* name;
-int age;
+struct Person
+{
+    char *name;
+    int age;
 
-Point(const char* name, int age){
-this->name=new char[strlen(name)+1];
-strcpy(this->name,name);
-this->age=age;
+    Person(const char *name, int age)
+    {
+        this->name = new char[strlen(name) + 1];
+        strcpy(this->name, name);
+        this->age = age;
+    };
+    ~Person()
+    {
+        delete[] name;
+    }
 };
-~Point(){
-delete[] name;
-}
 ```
 - Извиква се при изтриване на обекта:
  -  когато той излезне извън scope-a, в който е деклариран
