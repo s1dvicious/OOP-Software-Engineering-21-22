@@ -66,8 +66,6 @@ std::ostream& operator<<(std::ostream& ofs, const complexSeq& obj) {
 		ofs << obj.seq[i].getMod() << "\t";
 	}
 
-	std::cout << ">Successfully wrote to the file.";
-
 	return ofs;
 }
 
