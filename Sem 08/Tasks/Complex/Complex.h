@@ -44,8 +44,6 @@ public:
 	friend bool operator!=(const complex&, const complex&);
 
 	//multiplication with a scalar
-
-
 	friend complex operator*(const complex&, double);
 	friend complex operator*(double, const complex&);
 };
