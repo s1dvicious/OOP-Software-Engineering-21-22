@@ -4,7 +4,7 @@
 
 
 class complexSeq {
-	complex* set;
+	complex* seq;
 	size_t size;
 
 	void copyFrom(const complexSeq&);
