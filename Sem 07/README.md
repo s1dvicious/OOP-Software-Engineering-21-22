@@ -30,7 +30,7 @@ int main()
  Всяка една от тезу функции **извиква рекурсивно същите функции връху член-данните.**
  ####  Пример за конструктора по подразбиране:
  
-![enter image description here](https://i.imgur.com/kukiv0t.jpg)
+
  
   ####  Пример за деструктора:
 ![enter image description here](https://i.ibb.co/kmYSzP7/2.png)
