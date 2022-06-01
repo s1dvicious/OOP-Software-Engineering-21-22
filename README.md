@@ -11,6 +11,6 @@
 - [Тема 8](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2009) : Композиция на обекти. Масиви от обекти.
 - [Тема 9](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2010) : Move семантики.
 - [Тема 10](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2010) : Шаблони. Реализация на шаблонен клас. Свързан стек.
-- Тема 11: Наследяване. **is-a** взаимоотношения.
-- Тема 12: Статично и динамично свързване. Виртуални функции и виртуални таблици. Полиморфизъм. Абстрактни класове.
-- Тема 13: Колекции от обекти в полиморфна йерархия. Копиране и триене
+- [Тема 11](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2011) : Наследяване. **is-a** взаимоотношения.
+- [Тема 12](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2012) : Статично и динамично свързване. Виртуални функции и виртуални таблици. Полиморфизъм. Абстрактни класове.
+- [Тема 13](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2013) : Колекции от обекти в полиморфна йерархия. Копиране и триене
