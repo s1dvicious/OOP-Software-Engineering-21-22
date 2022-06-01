@@ -1,8 +1,12 @@
-#pragma once
+#include "Cow.h"
 
-class Animal {
+void Cow::sayHello() const
+{
+	std::cout << "Hello, I am a Cow!" << std::endl;
+}
 
-public:
-
-
-};
+Animal* Cow::clone() const
+{
+	Animal* newObj = new Mouse(*this); //copy constr of Cow
+	return newObj;
+}
