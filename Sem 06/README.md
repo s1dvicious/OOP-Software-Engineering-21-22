@@ -137,8 +137,11 @@ private:
 public:
 	
 	Point& operator=(const Point& rhs){
+	
+	if(this!=&rhs){
 	x=rhs.x;
 	y=rhs.y;
+	}
 	
 	return *this;
 	}

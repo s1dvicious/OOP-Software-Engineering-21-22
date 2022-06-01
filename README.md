@@ -9,4 +9,8 @@
 - [Тема 6](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2007) : Динамична памет в класовете. Голяма четворка.
 - [Тема 7](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2008) : Предефиниране на оператори. Приятелски класове и функции.
 - [Тема 8](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2009) : Композиция на обекти. Масиви от обекти.
-- [Тема 9](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2010) : Move семантики. Шаблони. Реализация на шаблонен клас.
+- [Тема 9](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2010) : Move семантики.
+- [Тема 10](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2010) : Шаблони. Реализация на шаблонен клас. Свързан стек.
+- Тема 11: Наследяване. **is-a** взаимоотношения.
+- Тема 12: Статично и динамично свързване. Виртуални функции и виртуални таблици. Полиморфизъм. Абстрактни класове.
+- Тема 13: Колекции от обекти в полиморфна йерархия. Копиране и триене
