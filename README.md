@@ -14,3 +14,5 @@
 - [Тема 11](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2011) : Наследяване. **is-a** взаимоотношения.
 - [Тема 12](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2012) : Статично и динамично свързване. Виртуални функции и виртуални таблици. Полиморфизъм. Абстрактни класове.
 - [Тема 13](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2013) : Колекции от обекти в полиморфна йерархия. Копиране и триене
+- [Тема 14](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2014) : Type casting. SOLID principles.
+- [Тема 15](https://github.com/s1dvicious/OOP-Software-Engineering-21-22/tree/main/Sem%2015) : Design Patterns
