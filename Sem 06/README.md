@@ -121,7 +121,7 @@ Person(const Person& toCopy){
 - **Operator =** - 
 Същевременно с това как едни обекти биват инициализирани, един клас контролира и тяхното присвояване. Например
 ```c++
-Person p1("Pesho",26);  //Invokes the default constructor of p1
+Person p1("Pesho",26);  //Invokes the constructor of Person
 Person p2;         //Default constructor
 p2 = p1;           //Operator=
 ```
