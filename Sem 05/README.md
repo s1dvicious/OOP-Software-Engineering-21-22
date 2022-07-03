@@ -206,9 +206,9 @@ struct Student
 };
 int main()
 {
-	Student s("Ivan", 33);                    //Calls the default parameter constructor of Student
+	Student s("Ivan", 33);                    //Calls the constructor of Student
 
-	Student* ptr = new Student("Petur", 17);  //Calls the default parameter constructor of Student
+	Student* ptr = new Student("Petur", 17);  //Calls the constructor of Student
 
 	s.print();
 	ptr->print();
@@ -262,7 +262,7 @@ int main() {
 	obj_c* ptr = new obj_c;   //dynamically allocate memory for obj ptr of type obj_c
 	                          //, calls the default constructor of obj_c;
 	
-	delete ptr;               //deallocate the memory allocated for ptr, call to the destructor of type obj_c;
+	delete ptr;               //deallocate the memory allocated for ptr, call to the destructor of obj_c;
 
 	return 0;
 }
