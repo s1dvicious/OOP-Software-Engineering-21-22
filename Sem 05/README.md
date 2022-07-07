@@ -260,10 +260,10 @@ public:
 
 int main() {
 
-	obj_c* ptr = new obj_c;   //dynamically allocate memory for obj ptr of type obj_c
+	obj_c* ptr = new obj_c;   //dynamically allocate memory for an object of type obj_c
 	                          //, calls the default constructor of obj_c;
 	
-	delete ptr;               //deallocate the memory allocated for ptr, call to the destructor of obj_c;
+	delete ptr;               //deallocate the memory associated for ptr, call to the destructor of obj_c;
 
 	return 0;
 }
